@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => {
+const Chord: NextPage = () => {
   return <></>;
 };
 
-export default Home;
+export default Chord;
