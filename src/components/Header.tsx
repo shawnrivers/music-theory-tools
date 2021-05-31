@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import classnames from 'classnames';
-import { LinkTo } from 'components/LinkTo';
+import { LinkTo } from 'app/components/LinkTo';
 
 const NAV_ITEMS = [
   {
@@ -19,8 +19,6 @@ const NAV_ITEMS = [
 
 export const Header: React.VFC = () => {
   const { pathname } = useRouter();
-
-  console.log(pathname);
 
   return (
     <header className="block h-16 px-4 mb-8 text-center">

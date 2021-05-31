@@ -1,7 +1,8 @@
-import 'styles/globals.css';
+import 'focus-visible';
+import 'app/styles/globals.css';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import { Header } from 'components/Header';
+import { Header } from 'app/components/Header';
 
 const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (

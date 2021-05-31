@@ -25,3 +25,5 @@ jobs:
         run: npm run lint:fix
       - name: Format
         run: npm run format:fix
+      - name: Test
+        run: npm run test

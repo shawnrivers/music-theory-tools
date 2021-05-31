@@ -1,9 +1,14 @@
 import type { NextPage } from 'next';
-import { Select } from 'components/Select';
-import { GeneralNoteIndex, NOTE_INDICES } from 'constants/note';
-import { convertNoteNameToString, getNoteName, getNoteNames } from 'utils/note';
+import { Select } from 'app/components/Select';
+import { NotePopover } from 'app/components/popover/NotePopover';
+import { GeneralNoteIndex, NOTE_INDICES } from 'app/constants/note';
+import {
+  convertNoteNameToString,
+  getNoteName,
+  getNoteNames,
+} from 'app/utils/note';
 import { useCallback, useMemo, useState } from 'react';
-import { getNoteIndicesInKey, KeyType } from 'utils/key';
+import { getNoteIndicesInKey, KeyType } from 'app/utils/key';
 
 const homeNoteOptions = NOTE_INDICES.map(index => ({
   value: index,
@@ -20,16 +25,18 @@ const keyTypeOptions = [
   },
 ];
 
-const Key: NextPage = () => {
+const KeyPage: NextPage = () => {
   const [selectedHomeNote, setSelectedHomeNote] = useState<GeneralNoteIndex>(1);
   const [selectedKeyType, setSelectedKeyType] = useState<KeyType>('major');
-
+  const selectedKey = useMemo(
+    () => ({ homeNote: selectedHomeNote, type: selectedKeyType }),
+    [selectedHomeNote, selectedKeyType],
+  );
   const noteNameListInKey = useMemo(() => {
-    const selectedKey = { homeNote: selectedHomeNote, type: selectedKeyType };
     return getNoteIndicesInKey(selectedKey, true).map(noteIndex =>
       getNoteName(noteIndex, selectedKey),
     );
-  }, [selectedHomeNote, selectedKeyType]);
+  }, [selectedKey]);
 
   const handleChangeHomeNote = useCallback<
     React.ChangeEventHandler<HTMLSelectElement>
@@ -65,7 +72,7 @@ const Key: NextPage = () => {
             return (
               <li key={noteNameString} className="flex-1 text-center">
                 <div className="text-sm text-gray-500">{i + 1}</div>
-                <div>{noteNameString}</div>
+                <NotePopover name={noteName} className="mt-2" />
               </li>
             );
           })}
@@ -75,4 +82,4 @@ const Key: NextPage = () => {
   );
 };
 
-export default Key;
+export default KeyPage;

@@ -1,12 +1,23 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   mode: 'jit',
   purge: ['./src/pages/**/*.tsx', './src/components/**/*.tsx'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        naturals: 'repeat(7, minmax(0, 1fr))',
+        accidentals: 'repeat(12, minmax(0, 1fr))',
+      },
+      colors: {
+        rose: colors.rose,
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };

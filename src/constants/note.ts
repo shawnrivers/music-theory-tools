@@ -28,6 +28,16 @@ export type NoteNames = Readonly<[NoteName] | [NoteName, NoteName]>;
 export const NOTE_INDICES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
 
 /**
+ * All 7 natural notes in their indices.
+ */
+export const NATURAL_NOTE_INDICES = [1, 3, 5, 6, 8, 10, 12] as const;
+
+/**
+ * All 5 accidental notes in their indices.
+ */
+export const ACCIDENTAL_NOTE_INDICES = [2, 4, 7, 9, 11] as const;
+
+/**
  * The normalized index of each note.
  */
 export type NormalizedNoteIndex = typeof NOTE_INDICES[number];

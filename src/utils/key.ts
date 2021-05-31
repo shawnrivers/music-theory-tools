@@ -3,7 +3,7 @@ import {
   KEY_NOTE_INTERVALS,
   NormalizedNoteIndexInKey,
   NOTE_COUNT_IN_KEY,
-} from 'constants/key';
+} from 'app/constants/key';
 import {
   NormalizedNoteIndex,
   NoteNames,
@@ -11,10 +11,10 @@ import {
   GeneralNoteIndex,
   NoteName,
   NOTE_BASE_NAMES,
-} from 'constants/note';
-import { getNoteIndex, getNoteNames } from 'utils/note';
-import { normalizeIndex } from 'utils/number';
-import { getItemByIndex } from 'utils/array';
+} from 'app/constants/note';
+import { getNoteIndex, getNoteNames } from 'app/utils/note';
+import { normalizeIndex } from 'app/utils/number';
+import { getItemByIndex } from 'app/utils/array';
 
 type ItemsInKey<T> = [T, T, T, T, T, T, T];
 // type GeneralNoteIndicesInKey = ItemsInKey<GeneralNoteIndexInKey>;

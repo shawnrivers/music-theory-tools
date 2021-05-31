@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
-const Chord: NextPage = () => {
-  return <></>;
+const ChordPage: NextPage = () => {
+  return <div className="flex flex-col items-center"></div>;
 };
 
-export default Chord;
+export default ChordPage;

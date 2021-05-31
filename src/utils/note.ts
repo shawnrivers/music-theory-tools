@@ -7,9 +7,9 @@ import {
   NOTE_INDICES,
   Note,
   GeneralNoteIndex,
-} from 'constants/note';
-import { getNoteNamesInKey, Key } from 'utils/key';
-import { normalizeIndex } from 'utils/number';
+} from 'app/constants/note';
+import { getNoteNamesInKey, Key } from 'app/utils/key';
+import { normalizeIndex } from 'app/utils/number';
 
 function isNoteIndex(note: Note): note is GeneralNoteIndex {
   return typeof note === 'number';
@@ -140,4 +140,14 @@ export function convertNoteNameToString(noteName: NoteName): string {
   const base = noteName.base;
   const half = noteName.half ? (noteName.half === 'sharp' ? '♯' : '♭') : '';
   return `${base}${half}`;
+}
+
+/**
+ * Determine whether two notes are the same.
+ * @param noteA note A
+ * @param noteB note B
+ * @returns whether the two notes are the same
+ */
+export function equalNote(noteA: Note, noteB: Note): boolean {
+  return getNoteIndex(noteA) === getNoteIndex(noteB);
 }
