@@ -66,7 +66,7 @@ const KeyPage: NextPage = () => {
       </section>
       <section className="mt-8 flex flex-col items-center">
         <h2>Notes</h2>
-        <ul className="mt-2 flex justify-center space-x-6">
+        <ul className="mt-2 flex items-center justify-center space-x-6">
           {noteNameListInKey.map((noteName, i) => {
             const noteNameString = convertNoteNameToString(noteName);
             return (

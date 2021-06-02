@@ -18,7 +18,7 @@ export const PianoPopoverWrapper: React.VFC<PianoPopoverWrapperProps> =
           {({ open }) => (
             <>
               <Popover.Button
-                className={`group px-3 py-2 ${
+                className={`group px-4 py-2 ${
                   open ? 'text-white bg-gray-500' : 'bg-gray-200'
                 } rounded-md shadow-sm hover:bg-gray-300 hover:text-current focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
               >
