@@ -8,10 +8,6 @@ const NAV_ITEMS = [
     page: '/',
   },
   {
-    label: 'Chord',
-    page: '/chord',
-  },
-  {
     label: 'Key',
     page: '/key',
   },
