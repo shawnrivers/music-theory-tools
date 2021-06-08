@@ -48,7 +48,7 @@ const KeyPage: NextPage = () => {
   return (
     <div className="flex flex-col items-center">
       <section className="flex flex-col items-center">
-        <h2>Choose a key</h2>
+        <h2>Key</h2>
         <div className="mt-2 flex flex-wrap justify-center gap-4">
           <Select
             label="Home note"
@@ -71,7 +71,9 @@ const KeyPage: NextPage = () => {
             const noteNameString = convertNoteNameToString(noteName);
             return (
               <li key={noteNameString} className="flex-1 text-center">
-                <div className="text-sm text-gray-500">{i + 1}</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  {i + 1}
+                </div>
                 <NotePopover name={noteName} className="mt-2" />
               </li>
             );
