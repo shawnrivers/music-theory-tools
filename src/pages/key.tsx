@@ -49,7 +49,7 @@ const KeyPage: NextPage = () => {
     <div className="flex flex-col items-center">
       <section className="flex flex-col items-center">
         <h2>Choose a key</h2>
-        <div className="mt-2 flex justify-center space-x-4">
+        <div className="mt-2 flex flex-wrap justify-center gap-4">
           <Select
             label="Home note"
             selected={selectedHomeNote}
@@ -66,7 +66,7 @@ const KeyPage: NextPage = () => {
       </section>
       <section className="mt-8 flex flex-col items-center">
         <h2>Notes</h2>
-        <ul className="mt-2 flex items-center justify-center space-x-6">
+        <ul className="mt-2 px-16 flex flex-wrap gap-6">
           {noteNameListInKey.map((noteName, i) => {
             const noteNameString = convertNoteNameToString(noteName);
             return (

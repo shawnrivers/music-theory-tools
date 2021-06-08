@@ -17,7 +17,7 @@ export const Header: React.VFC = () => {
   const { pathname } = useRouter();
 
   return (
-    <header className="block h-16 px-4 mb-8 text-center">
+    <header className="block h-16 px-4 text-center">
       <nav>
         <ul className="list-none">
           {NAV_ITEMS.map(({ label, page }) => (
