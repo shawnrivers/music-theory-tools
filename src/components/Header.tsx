@@ -4,11 +4,11 @@ import { LinkTo } from 'app/components/LinkTo';
 
 const NAV_ITEMS = [
   {
-    label: 'Home',
+    label: 'HOME',
     page: '/',
   },
   {
-    label: 'Key',
+    label: 'KEY',
     page: '/key',
   },
 ] as const;
@@ -26,7 +26,9 @@ export const Header: React.VFC = () => {
                 href={page}
                 className={classnames(
                   'text-xl font-bold',
-                  pathname === page ? 'text-indigo-500' : undefined,
+                  pathname === page
+                    ? 'text-indigo-500 dark:text-indigo-400'
+                    : undefined,
                 )}
               >
                 {label}

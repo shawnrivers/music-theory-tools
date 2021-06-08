@@ -18,9 +18,11 @@ export const PianoPopoverWrapper: React.VFC<PianoPopoverWrapperProps> =
           {({ open }) => (
             <>
               <Popover.Button
-                className={`group px-4 py-2 ${
-                  open ? 'text-white bg-gray-500' : 'bg-gray-200'
-                } rounded-md shadow-sm hover:bg-gray-300 hover:text-current focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
+                className={`${
+                  !open
+                    ? 'bg-gray-200 dark:bg-gray-600'
+                    : 'bg-gray-500 text-white dark:bg-gray-800'
+                } hover:bg-gray-300 hover:text-current dark:hover:bg-gray-700 group px-4 py-2 rounded-md shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
               >
                 {children}
               </Popover.Button>
@@ -34,7 +36,7 @@ export const PianoPopoverWrapper: React.VFC<PianoPopoverWrapperProps> =
                 leaveTo="opacity-0 translate-y-1"
               >
                 <Popover.Panel className="absolute z-10 mt-3 transform -translate-x-1/2 left-1/2">
-                  <div className="p-3 overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-50">
+                  <div className="p-3 overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900 ring-opacity-5 bg-gray-50 dark:ring-gray-500 dark:bg-gray-700">
                     <Piano
                       className="w-48 max-w-full h-32"
                       highlightedNotes={highlightedNotes}

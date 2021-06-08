@@ -6,7 +6,7 @@ import { Header } from 'app/components/Header';
 
 const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
+    <div className="min-h-screen">
       <Head>
         <title>Music Theory Tools</title>
         <link rel="icon" href="/favicon.ico" />
@@ -15,7 +15,7 @@ const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
       <main>
         <Component {...pageProps} />
       </main>
-    </>
+    </div>
   );
 };
 

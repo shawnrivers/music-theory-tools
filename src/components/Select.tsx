@@ -20,7 +20,7 @@ export const Select = <T extends SelectElementValueType>(
     <label className={className}>
       <div>{label}</div>
       <select
-        className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-indigo-500"
+        className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 bg-white dark:border-gray-500 dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-indigo-500"
         value={selected}
         onChange={onChange}
         onBlur={onChange}

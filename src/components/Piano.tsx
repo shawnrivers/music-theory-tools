@@ -13,8 +13,10 @@ const NaturalKey: React.VFC<KeyProps> = props => {
   return (
     <div
       className={`${
-        isHighlighted ? 'bg-rose-300' : 'bg-white'
-      } border border-gray-300 rounded-b`}
+        isHighlighted
+          ? 'bg-rose-300 dark:bg-rose-400'
+          : 'bg-white dark:bg-gray-200'
+      } border border-gray-300 dark:border-gray-400 rounded-b`}
     />
   );
 };
@@ -25,7 +27,9 @@ const AccidentalKey: React.VFC<KeyProps> = props => {
     <div
       className={classNames(
         `${
-          isHighlighted ? 'bg-rose-400' : 'bg-gray-600'
+          isHighlighted
+            ? 'bg-rose-400 dark:bg-rose-500'
+            : 'bg-gray-600 dark:bg-gray-700'
         } rounded-b col-start-2 col-end-3`,
         className,
       )}
