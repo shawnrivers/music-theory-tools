@@ -22,7 +22,7 @@ export const PianoPopoverWrapper: React.VFC<PianoPopoverWrapperProps> =
                   !open
                     ? 'bg-gray-200 dark:bg-gray-600'
                     : 'bg-gray-500 text-white dark:bg-gray-800'
-                } hover:bg-gray-300 hover:text-current dark:hover:bg-gray-700 group px-4 py-2 rounded-md shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500`}
+                } hover:bg-gray-300 hover:text-current dark:hover:bg-gray-700 group px-4 py-2 rounded-md shadow-sm focus-ring-outline`}
               >
                 {children}
               </Popover.Button>

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400;
+  }
+
+  .focus-ring-outline {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400;
+  }
+}
+
 @layer base {
   * {
     @apply box-border;
@@ -17,6 +27,6 @@
   }
 
   a {
-    @apply text-current no-underline;
+    @apply text-current no-underline rounded-sm focus-ring-outline;
   }
 }
