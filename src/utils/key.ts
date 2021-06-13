@@ -74,7 +74,7 @@ export function getNoteIndicesInKey<T extends Note, U extends boolean>(
 }
 
 /**
- * Get the index of a note in a key
+ * Get the index of a note in a key.
  * @param note any form of a note
  * @param key the key the note is in
  * @param [normalize=false] normalize the index or not

@@ -53,7 +53,7 @@ export function normalizeNoteIndex(noteIndex: number): NormalizedNoteIndex {
 }
 
 /**
- * Get the index of a note
+ * Get the index of a note.
  * @param note any form of a note
  * @param [normalize=false] normalize the index or not
  * @returns the index of the note
