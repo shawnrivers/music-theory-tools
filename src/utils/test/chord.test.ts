@@ -10,14 +10,14 @@ describe('getChordNoteIndices', () => {
   ][];
 
   const cTestTable: GetChordNoteIndicesTestTable = [
-    [1, 'majorTriad', [1, 5, 8]],
-    [1, 'minorTriad', [1, 4, 8]],
-    [1, 'augmentedTriad', [1, 5, 9]],
-    [1, 'diminishedTriad', [1, 4, 7]],
-    [1, 'majorSeventh', [1, 5, 8, 12]],
-    [1, 'minorSeventh', [1, 4, 8, 11]],
-    [1, 'dominantSeventh', [1, 5, 8, 11]],
-    [1, 'diminishedSeventh', [1, 4, 7, 10]],
+    [{ base: 'C' }, 'major triad', [1, 5, 8]],
+    [{ base: 'C' }, 'minor triad', [1, 4, 8]],
+    [{ base: 'C' }, 'augmented triad', [1, 5, 9]],
+    [{ base: 'C' }, 'diminished triad', [1, 4, 7]],
+    [{ base: 'C' }, 'major seventh', [1, 5, 8, 12]],
+    [{ base: 'C' }, 'minor seventh', [1, 4, 8, 11]],
+    [{ base: 'C' }, 'dominant seventh', [1, 5, 8, 11]],
+    [{ base: 'C' }, 'diminished seventh', [1, 4, 7, 10]],
   ];
 
   test.each(cTestTable)(
@@ -34,14 +34,22 @@ describe('getChordSymbol', () => {
   type GetChordSymbolTestTable = [FuncParams[0], FuncParams[1], FuncReturn][];
 
   const cTestTable: GetChordSymbolTestTable = [
-    [1, 'majorTriad', { base: 'C' }],
-    [1, 'minorTriad', { base: 'C', aside: 'm' }],
-    [1, 'augmentedTriad', { base: 'C', aside: 'aug' }],
-    [1, 'diminishedTriad', { base: 'C', aside: 'dim' }],
-    [1, 'majorSeventh', { base: 'C', supperScript: 'maj7' }],
-    [1, 'minorSeventh', { base: 'C', aside: 'min', supperScript: '7' }],
-    [1, 'dominantSeventh', { base: 'C', supperScript: '7' }],
-    [1, 'diminishedSeventh', { base: 'C', aside: 'dim', supperScript: '7' }],
+    [{ base: 'C' }, 'major triad', { base: 'C' }],
+    [{ base: 'C' }, 'minor triad', { base: 'C', aside: 'm' }],
+    [{ base: 'C' }, 'augmented triad', { base: 'C', aside: 'aug' }],
+    [{ base: 'C' }, 'diminished triad', { base: 'C', aside: 'dim' }],
+    [{ base: 'C' }, 'major seventh', { base: 'C', supperScript: 'maj7' }],
+    [
+      { base: 'C' },
+      'minor seventh',
+      { base: 'C', aside: 'min', supperScript: '7' },
+    ],
+    [{ base: 'C' }, 'dominant seventh', { base: 'C', supperScript: '7' }],
+    [
+      { base: 'C' },
+      'diminished seventh',
+      { base: 'C', aside: 'dim', supperScript: '7' },
+    ],
   ];
 
   test.each(cTestTable)(

@@ -4,12 +4,12 @@ import { LinkTo } from 'app/components/LinkTo';
 
 const NAV_ITEMS = [
   {
-    label: 'HOME',
+    label: 'KEY',
     page: '/',
   },
   {
-    label: 'KEY',
-    page: '/key',
+    label: 'CHORD',
+    page: '/chord',
   },
 ] as const;
 

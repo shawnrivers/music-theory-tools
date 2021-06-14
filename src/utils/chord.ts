@@ -1,29 +1,31 @@
 import { GeneralNoteIndex, Note } from 'app/constants/note';
 import { convertNoteNameToString, getNoteIndex, getNoteName } from './note';
 
-type TriadChordType =
-  | 'majorTriad'
-  | 'minorTriad'
-  | 'augmentedTriad'
-  | 'diminishedTriad';
+const TRIAD_CHORDS = [
+  'major triad',
+  'minor triad',
+  'augmented triad',
+  'diminished triad',
+] as const;
+const SEVENTH_CHORDS = [
+  'major seventh',
+  'minor seventh',
+  'dominant seventh',
+  'diminished seventh',
+] as const;
+export const CHORDS = [...TRIAD_CHORDS, ...SEVENTH_CHORDS] as const;
 
-type SeventhChordType =
-  | 'majorSeventh'
-  | 'minorSeventh'
-  | 'dominantSeventh'
-  | 'diminishedSeventh';
-
-type ChordType = TriadChordType | SeventhChordType;
+export type ChordType = typeof CHORDS[number];
 
 const chordIntervals: Record<ChordType, number[]> = {
-  majorTriad: [4, 3],
-  minorTriad: [3, 4],
-  augmentedTriad: [4, 4],
-  diminishedTriad: [3, 3],
-  majorSeventh: [4, 3, 4],
-  minorSeventh: [3, 4, 3],
-  dominantSeventh: [4, 3, 3],
-  diminishedSeventh: [3, 3, 3],
+  'major triad': [4, 3],
+  'minor triad': [3, 4],
+  'augmented triad': [4, 4],
+  'diminished triad': [3, 3],
+  'major seventh': [4, 3, 4],
+  'minor seventh': [3, 4, 3],
+  'dominant seventh': [4, 3, 3],
+  'diminished seventh': [3, 3, 3],
 };
 
 /**
@@ -46,7 +48,7 @@ export function getChordNoteIndices(
   return chordNoteIndices;
 }
 
-type ChordSymbol = {
+export type ChordSymbol = {
   base: string;
   aside?: string;
   supperScript?: string;
@@ -60,23 +62,22 @@ type ChordSymbol = {
  */
 export function getChordSymbol(baseNote: Note, type: ChordType): ChordSymbol {
   const baseNoteNameString = convertNoteNameToString(getNoteName(baseNote));
-
   switch (type) {
-    case 'majorTriad':
+    case 'major triad':
       return { base: baseNoteNameString };
-    case 'minorTriad':
+    case 'minor triad':
       return { base: baseNoteNameString, aside: 'm' };
-    case 'augmentedTriad':
+    case 'augmented triad':
       return { base: baseNoteNameString, aside: 'aug' };
-    case 'diminishedTriad':
+    case 'diminished triad':
       return { base: baseNoteNameString, aside: 'dim' };
-    case 'majorSeventh':
+    case 'major seventh':
       return { base: baseNoteNameString, supperScript: 'maj7' };
-    case 'minorSeventh':
+    case 'minor seventh':
       return { base: baseNoteNameString, aside: 'min', supperScript: '7' };
-    case 'dominantSeventh':
+    case 'dominant seventh':
       return { base: baseNoteNameString, supperScript: '7' };
-    case 'diminishedSeventh':
+    case 'diminished seventh':
       return { base: baseNoteNameString, aside: 'dim', supperScript: '7' };
   }
 }

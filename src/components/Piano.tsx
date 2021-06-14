@@ -28,7 +28,7 @@ const AccidentalKey: React.VFC<KeyProps> = props => {
       className={classNames(
         `${
           isHighlighted
-            ? 'bg-rose-400 dark:bg-rose-500'
+            ? 'bg-rose-400 dark:bg-indigo-400'
             : 'bg-gray-600 dark:bg-gray-700'
         } rounded-b col-start-2 col-end-3`,
         className,

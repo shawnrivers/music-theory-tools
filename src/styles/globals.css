@@ -30,3 +30,9 @@
     @apply text-current no-underline rounded-sm focus-ring-outline;
   }
 }
+
+@layer utilities {
+  .align-superscript {
+    vertical-align: super;
+  }
+}
