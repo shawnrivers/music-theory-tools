@@ -12,7 +12,7 @@ const MyApp: React.VFC<AppProps> = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="pt-6 pb-8 px-8">
+      <main className="pt-6 pb-48 px-8">
         <Component {...pageProps} />
       </main>
     </div>
