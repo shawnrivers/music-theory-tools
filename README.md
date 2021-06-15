@@ -1,9 +1,3 @@
-This is a Next.js starter with the following setup:
+# Music Theory Tools
 
-- Typescript
-- ESLint
-- Prettier
-- Jest
-- Lint-staged
-- Husky
-- GitHub Actions
+This is a simple app helps show some basic music theory knowledge like keys and chords.
