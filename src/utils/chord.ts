@@ -13,10 +13,12 @@ const SEVENTH_CHORDS = [
   'minor seventh',
   'dominant seventh',
   'diminished seventh',
+  'half-diminished seventh',
 ] as const;
 export const CHORDS = [...TRIAD_CHORDS, ...SEVENTH_CHORDS] as const;
 
 type TriadChordType = typeof TRIAD_CHORDS[number];
+type SeventhChordType = typeof SEVENTH_CHORDS[number];
 export type ChordType = typeof CHORDS[number];
 
 const chordIntervals: Readonly<Record<ChordType, number[]>> = Object.freeze({
@@ -28,9 +30,10 @@ const chordIntervals: Readonly<Record<ChordType, number[]>> = Object.freeze({
   'minor seventh': [3, 4, 3],
   'dominant seventh': [4, 3, 3],
   'diminished seventh': [3, 3, 3],
+  'half-diminished seventh': [3, 3, 4],
 });
 
-export const TRIADS_IN_KEY: Readonly<
+export const DIATONIC_TRIADS_IN_KEY: Readonly<
   Record<KeyType, ItemsInKey<TriadChordType>>
 > = Object.freeze({
   major: [
@@ -50,6 +53,29 @@ export const TRIADS_IN_KEY: Readonly<
     'minor triad',
     'major triad',
     'major triad',
+  ],
+});
+
+export const DIATONIC_SEVENTHS_IN_KEY: Readonly<
+  Record<KeyType, ItemsInKey<SeventhChordType>>
+> = Object.freeze({
+  major: [
+    'major seventh',
+    'minor seventh',
+    'minor seventh',
+    'major seventh',
+    'dominant seventh',
+    'minor seventh',
+    'half-diminished seventh',
+  ],
+  minor: [
+    'minor seventh',
+    'half-diminished seventh',
+    'major seventh',
+    'minor seventh',
+    'minor seventh',
+    'major seventh',
+    'dominant seventh',
   ],
 });
 
@@ -97,12 +123,16 @@ export function getChordSymbol(baseNote: Note, type: ChordType): ChordSymbol {
     case 'diminished triad':
       return { base: baseNoteNameString, aside: 'dim' };
     case 'major seventh':
-      return { base: baseNoteNameString, supperScript: 'maj7' };
+      return { base: baseNoteNameString, aside: 'maj', supperScript: '7' };
     case 'minor seventh':
-      return { base: baseNoteNameString, aside: 'min', supperScript: '7' };
+      return { base: baseNoteNameString, aside: 'm', supperScript: '7' };
     case 'dominant seventh':
       return { base: baseNoteNameString, supperScript: '7' };
     case 'diminished seventh':
       return { base: baseNoteNameString, aside: 'dim', supperScript: '7' };
+    case 'diminished seventh':
+      return { base: baseNoteNameString, aside: 'dim', supperScript: '7' };
+    case 'half-diminished seventh':
+      return { base: baseNoteNameString, aside: 'm7', supperScript: 'o5' };
   }
 }
