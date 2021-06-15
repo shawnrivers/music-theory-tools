@@ -18,6 +18,7 @@ describe('getChordNoteIndices', () => {
     [{ base: 'C' }, 'minor seventh', [1, 4, 8, 11]],
     [{ base: 'C' }, 'dominant seventh', [1, 5, 8, 11]],
     [{ base: 'C' }, 'diminished seventh', [1, 4, 7, 10]],
+    [{ base: 'C' }, 'half-diminished seventh', [1, 4, 7, 11]],
   ];
 
   test.each(cTestTable)(
@@ -38,17 +39,26 @@ describe('getChordSymbol', () => {
     [{ base: 'C' }, 'minor triad', { base: 'C', aside: 'm' }],
     [{ base: 'C' }, 'augmented triad', { base: 'C', aside: 'aug' }],
     [{ base: 'C' }, 'diminished triad', { base: 'C', aside: 'dim' }],
-    [{ base: 'C' }, 'major seventh', { base: 'C', supperScript: 'maj7' }],
+    [
+      { base: 'C' },
+      'major seventh',
+      { base: 'C', aside: 'maj', supperScript: '7' },
+    ],
     [
       { base: 'C' },
       'minor seventh',
-      { base: 'C', aside: 'min', supperScript: '7' },
+      { base: 'C', aside: 'm', supperScript: '7' },
     ],
     [{ base: 'C' }, 'dominant seventh', { base: 'C', supperScript: '7' }],
     [
       { base: 'C' },
       'diminished seventh',
       { base: 'C', aside: 'dim', supperScript: '7' },
+    ],
+    [
+      { base: 'C' },
+      'half-diminished seventh',
+      { base: 'C', aside: 'm7', supperScript: 'o5' },
     ],
   ];
 
