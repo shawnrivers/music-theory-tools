@@ -16,7 +16,7 @@ import { getNoteIndex, getNoteNames } from 'app/utils/note';
 import { normalizeIndex } from 'app/utils/number';
 import { getItemByIndex } from 'app/utils/array';
 
-type ItemsInKey<T> = [T, T, T, T, T, T, T];
+export type ItemsInKey<T> = [T, T, T, T, T, T, T];
 // type GeneralNoteIndicesInKey = ItemsInKey<GeneralNoteIndexInKey>;
 type NormalizedNoteIndicesInKey = ItemsInKey<NormalizedNoteIndexInKey>;
 

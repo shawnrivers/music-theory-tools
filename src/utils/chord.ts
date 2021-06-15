@@ -1,4 +1,5 @@
 import { GeneralNoteIndex, Note } from 'app/constants/note';
+import { ItemsInKey, KeyType } from './key';
 import { convertNoteNameToString, getNoteIndex, getNoteName } from './note';
 
 const TRIAD_CHORDS = [
@@ -15,9 +16,10 @@ const SEVENTH_CHORDS = [
 ] as const;
 export const CHORDS = [...TRIAD_CHORDS, ...SEVENTH_CHORDS] as const;
 
+type TriadChordType = typeof TRIAD_CHORDS[number];
 export type ChordType = typeof CHORDS[number];
 
-const chordIntervals: Record<ChordType, number[]> = {
+const chordIntervals: Readonly<Record<ChordType, number[]>> = Object.freeze({
   'major triad': [4, 3],
   'minor triad': [3, 4],
   'augmented triad': [4, 4],
@@ -26,7 +28,30 @@ const chordIntervals: Record<ChordType, number[]> = {
   'minor seventh': [3, 4, 3],
   'dominant seventh': [4, 3, 3],
   'diminished seventh': [3, 3, 3],
-};
+});
+
+export const TRIADS_IN_KEY: Readonly<
+  Record<KeyType, ItemsInKey<TriadChordType>>
+> = Object.freeze({
+  major: [
+    'major triad',
+    'minor triad',
+    'minor triad',
+    'major triad',
+    'major triad',
+    'minor triad',
+    'diminished triad',
+  ],
+  minor: [
+    'minor triad',
+    'diminished triad',
+    'major triad',
+    'minor triad',
+    'minor triad',
+    'major triad',
+    'major triad',
+  ],
+});
 
 /**
  * Get the chord's all notes' indices.

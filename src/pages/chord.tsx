@@ -7,8 +7,7 @@ import {
   getNoteName,
   getNoteNames,
 } from 'app/utils/note';
-import { CHORDS, getChordNoteIndices, getChordSymbol } from 'app/utils/chord';
-import { ChordSymbol } from 'app/components/ChordSymbol';
+import { CHORDS, getChordNoteIndices } from 'app/utils/chord';
 import { ChordPopover } from 'app/components/popover/ChordPopover';
 
 const baseNoteOptions = NOTE_INDICES.map(index => ({

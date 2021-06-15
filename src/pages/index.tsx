@@ -9,6 +9,8 @@ import {
 } from 'app/utils/note';
 import { useCallback, useMemo, useState } from 'react';
 import { getNoteIndicesInKey, KeyType } from 'app/utils/key';
+import { TRIADS_IN_KEY } from 'app/utils/chord';
+import { ChordPopover } from 'app/components/popover/ChordPopover';
 
 const homeNoteOptions = NOTE_INDICES.map(index => ({
   value: index,
@@ -47,6 +49,15 @@ const KeyPage: NextPage = () => {
     );
   }, [selectedKey]);
 
+  const triads = useMemo(
+    () =>
+      noteNameListInKey.map((noteName, i) => ({
+        baseNote: noteName,
+        type: TRIADS_IN_KEY[selectedKey.type][i],
+      })),
+    [noteNameListInKey, selectedKey.type],
+  );
+
   return (
     <div className="flex flex-col items-center">
       <section className="flex flex-col items-center">
@@ -77,6 +88,28 @@ const KeyPage: NextPage = () => {
                   {i + 1}
                 </div>
                 <NotePopover name={noteName} className="mt-2" />
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+      <section className="mt-8 flex flex-col items-center">
+        <h2>Triads</h2>
+        <ul className="mt-2 px-16 flex flex-wrap gap-6">
+          {triads.map((triad, i) => {
+            const chordNameString = `${convertNoteNameToString(
+              triad.baseNote,
+            )} ${triad.type}`;
+            return (
+              <li key={chordNameString} className="flex-1 text-center">
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  {i + 1}
+                </div>
+                <ChordPopover
+                  baseNote={triad.baseNote}
+                  chordType={triad.type}
+                  className="mt-2"
+                />
               </li>
             );
           })}
