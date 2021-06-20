@@ -15,13 +15,20 @@ const SEVENTH_CHORDS = [
   'diminished seventh',
   'half-diminished seventh',
 ] as const;
-export const CHORDS = [...TRIAD_CHORDS, ...SEVENTH_CHORDS] as const;
+const SUSPENDED_CHORDS = ['suspended second', 'suspended fourth'] as const;
+const ADDED_CHORDS = ['added ninth', 'added eleventh'] as const;
+export const CHORDS = [
+  ...TRIAD_CHORDS,
+  ...SEVENTH_CHORDS,
+  ...SUSPENDED_CHORDS,
+  ...ADDED_CHORDS,
+] as const;
 
 type TriadChordType = typeof TRIAD_CHORDS[number];
 type SeventhChordType = typeof SEVENTH_CHORDS[number];
 export type ChordType = typeof CHORDS[number];
 
-const chordIntervals: Readonly<Record<ChordType, number[]>> = Object.freeze({
+const chordIntervals: Readonly<Record<ChordType, number[]>> = {
   'major triad': [4, 3],
   'minor triad': [3, 4],
   'augmented triad': [4, 4],
@@ -31,7 +38,11 @@ const chordIntervals: Readonly<Record<ChordType, number[]>> = Object.freeze({
   'dominant seventh': [4, 3, 3],
   'diminished seventh': [3, 3, 3],
   'half-diminished seventh': [3, 3, 4],
-});
+  'suspended second': [2, 5],
+  'suspended fourth': [5, 2],
+  'added ninth': [2, 2, 3],
+  'added eleventh': [4, 1, 2],
+};
 
 export const DIATONIC_TRIADS_IN_KEY: Readonly<
   Record<KeyType, ItemsInKey<TriadChordType>>
@@ -134,5 +145,13 @@ export function getChordSymbol(baseNote: Note, type: ChordType): ChordSymbol {
       return { base: baseNoteNameString, aside: 'dim', supperScript: '7' };
     case 'half-diminished seventh':
       return { base: baseNoteNameString, aside: 'm7', supperScript: 'o5' };
+    case 'suspended second':
+      return { base: baseNoteNameString, aside: 'sus', supperScript: '2' };
+    case 'suspended fourth':
+      return { base: baseNoteNameString, aside: 'sus', supperScript: '4' };
+    case 'added ninth':
+      return { base: baseNoteNameString, aside: 'add', supperScript: '9' };
+    case 'added eleventh':
+      return { base: baseNoteNameString, aside: 'add', supperScript: '11' };
   }
 }

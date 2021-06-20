@@ -19,6 +19,10 @@ describe('getChordNoteIndices', () => {
     [{ base: 'C' }, 'dominant seventh', [1, 5, 8, 11]],
     [{ base: 'C' }, 'diminished seventh', [1, 4, 7, 10]],
     [{ base: 'C' }, 'half-diminished seventh', [1, 4, 7, 11]],
+    [{ base: 'C' }, 'suspended second', [1, 3, 8]],
+    [{ base: 'C' }, 'suspended fourth', [1, 6, 8]],
+    [{ base: 'C' }, 'added ninth', [1, 3, 5, 8]],
+    [{ base: 'C' }, 'added eleventh', [1, 5, 6, 8]],
   ];
 
   test.each(cTestTable)(
@@ -59,6 +63,26 @@ describe('getChordSymbol', () => {
       { base: 'C' },
       'half-diminished seventh',
       { base: 'C', aside: 'm7', supperScript: 'o5' },
+    ],
+    [
+      { base: 'C' },
+      'suspended second',
+      { base: 'C', aside: 'sus', supperScript: '2' },
+    ],
+    [
+      { base: 'C' },
+      'suspended fourth',
+      { base: 'C', aside: 'sus', supperScript: '4' },
+    ],
+    [
+      { base: 'C' },
+      'added ninth',
+      { base: 'C', aside: 'add', supperScript: '9' },
+    ],
+    [
+      { base: 'C' },
+      'added eleventh',
+      { base: 'C', aside: 'add', supperScript: '11' },
     ],
   ];
 
