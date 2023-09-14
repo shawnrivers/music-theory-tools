@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "settings": {
+    "tailwind": {
+      "callees": ["cn"]
+    }
+  }
+}
